@@ -1,5 +1,8 @@
 $privscript = <<-SCRIPT
   echo Installing mcpelauncher-linux
+  cp /vagrant/*.service /etc/systemd/system/
+  systemctl daemon-reload
+
   dpkg --add-architecture i386
   apt update
   apt install -y \
@@ -13,6 +16,7 @@ SCRIPT
 $script = <<-SCRIPT
   git clone --recursive https://github.com/MCMrARM/mcpelauncher-linux.git
   cd mcpelauncher-linux
+  cp /vagrant/server.properties .
   ./download_icon.sh
   ./setup_bin_libs.sh
   ./setup_cef.sh

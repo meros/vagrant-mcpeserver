@@ -1,0 +1,11 @@
+[Unit]
+Description="MCPE server"
+
+[Service]
+Type=simple
+User=vagrant
+WorkingDir=/home/vagrant/mcpelauncher-linux/
+ExecStart=/home/vagrant/mcpelauncher-linux/build/server
+
+[Install]
+WantedBy=multi-user.target
